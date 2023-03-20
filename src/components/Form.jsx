@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Form = ({ textInput, setTextInput, addTodo }) => {
+const Form = ({ inputText, setInputText, addTask }) => {
     return (
-        <div>
-            <label>
-                <input value={textInput} onChange={(e) => setTextInput(e.target.value)} />
-                <button onClick={addTodo}>Add todo</button>
-            </label>
-        </div>
+        <label>
+            <input value={inputText} onChange={(e) => setInputText(e.target.value)} type="text" />
+            <button onClick={addTask} type="button">
+                ADD
+            </button>
+        </label>
     );
 };
 

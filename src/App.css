@@ -7,3 +7,12 @@
 input {
   font-size: 30px;
 }
+button {
+  padding: 10px;
+}
+ul {
+  list-style-type: none;
+}
+.todo-text {
+  padding: 0 15px;
+}
