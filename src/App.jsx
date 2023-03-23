@@ -4,10 +4,12 @@ import { addTodo } from './store/todoSlice';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
+import Sort from './components/Sort';
 
 function App() {
     const dispatch = useDispatch();
     const [inputText, setInputText] = useState('');
+
     const addTask = () => {
         if (inputText.trim().length) {
             dispatch(addTodo(inputText));
@@ -19,6 +21,7 @@ function App() {
         <div className="App">
             <Form inputText={inputText} setInputText={setInputText} addTask={addTask} />
             <TodoList />
+            <Sort />
         </div>
     );
 }

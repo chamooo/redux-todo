@@ -6,7 +6,9 @@ const todoSlice = createSlice({
         todos: [
             { id: 'd231d', text: 'Learn Redux', isCompleted: false },
             { id: 'fw332', text: 'Learn React', isCompleted: true },
+            { id: 'glf24', text: 'Brush my teeth', isCompleted: false },
         ],
+        filterValue: 'all',
     },
     reducers: {
         addTodo(state, action) {
@@ -23,10 +25,13 @@ const todoSlice = createSlice({
             const current = state.todos.find((item) => item.id === action.payload.id);
             current.isCompleted = !current.isCompleted;
         },
+        sortTodo(state, action) {
+            state.filterValue = action.payload;
+        },
     },
 });
 
 const { actions, reducer } = todoSlice;
 
-export const { addTodo, removeTodo, toggleIsCompleted } = actions;
+export const { addTodo, removeTodo, toggleIsCompleted, sortTodo } = actions;
 export default reducer;
