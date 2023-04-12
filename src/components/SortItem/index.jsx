@@ -1,15 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sortTodo } from '../../store/todoSlice';
+
 
 const SortItem = ({ text, value }) => {
     const dispatch = useDispatch();
+
+    const item = {
+        name: value,
+    };
     const onClickSort = () => {
-        dispatch(sortTodo(value));
+        dispatch(sortTodo(item));
     };
     return (
-        <li>
-            <button onClick={() => onClickSort()}>{text}</button>
+        <li className="sortItem">
+            <button onClick={() => onClickSort()}>
+                {text}
+            </button>
         </li>
     );
 };

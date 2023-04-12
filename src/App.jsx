@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from './store/todoSlice';
-import './App.css';
+import './App.scss';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 import Sort from './components/Sort';
 
+
+
 function App() {
     const dispatch = useDispatch();
+
     const [inputText, setInputText] = useState('');
 
     const addTask = () => {
@@ -20,8 +23,8 @@ function App() {
     return (
         <div className="App">
             <Form inputText={inputText} setInputText={setInputText} addTask={addTask} />
-            <TodoList />
             <Sort />
+            <TodoList />
         </div>
     );
 }

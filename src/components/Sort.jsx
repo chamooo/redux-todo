@@ -3,8 +3,8 @@ import SortItem from './SortItem';
 
 const Sort = () => {
     return (
-        <ul>
-            <SortItem text="all" value={'all'} />
+        <ul className='sortList'>
+            <SortItem text="all" value={'all'}/>
             <SortItem text="active" value={'active'}/>
             <SortItem text="completed" value={'completed'}/>
         </ul>

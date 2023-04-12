@@ -8,7 +8,7 @@ const todoSlice = createSlice({
             { id: 'fw332', text: 'Learn React', isCompleted: true },
             { id: 'glf24', text: 'Brush my teeth', isCompleted: false },
         ],
-        filterValue: 'all',
+        filterValue: { name: 'all' },
     },
     reducers: {
         addTodo(state, action) {
@@ -20,6 +20,10 @@ const todoSlice = createSlice({
         },
         removeTodo(state, action) {
             state.todos = state.todos.filter((item) => item.id !== action.payload.id);
+        },
+        editTodo(state, action) {
+            const current = state.todos.find((item) => item.id === action.payload._id);
+            current.text = action.payload.value;
         },
         toggleIsCompleted(state, action) {
             const current = state.todos.find((item) => item.id === action.payload.id);
@@ -33,5 +37,5 @@ const todoSlice = createSlice({
 
 const { actions, reducer } = todoSlice;
 
-export const { addTodo, removeTodo, toggleIsCompleted, sortTodo } = actions;
+export const { addTodo, removeTodo, editTodo, toggleIsCompleted, sortTodo, toggleAlert } = actions;
 export default reducer;
